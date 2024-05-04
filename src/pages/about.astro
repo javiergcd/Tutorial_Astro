@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "Sobre mi";
 
@@ -67,5 +68,7 @@ const textCase = "uppercase";
 		{happy && <p>¡Estoy feliz de aprender Astro!</p>}
 		{finished && <p>¡He terminado este tutorial!</p>}
 		{goal==3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
+	
+	<Footer />
 	</body>
 </html>
