@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "Sobre mi";
 
@@ -19,36 +20,25 @@ const happy = true;
 const finished = false;
 const goal = 3;
 
-const skillcolor = "navy";
+const skillcolor = "navy" ;
 const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-
-		<style define:vars={{skillcolor, fontWeight, textCase}}>
-			h1 {
-				color: purple;
-				font-size: 4rem;
-			}
-			.skill{
-				color: var(--skillcolor);
-				font-weight: var(--fontWeight);
-				text-transform: var(--textCase);
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-
-		<h1>{pageTitle}</h1>
-		<p>... ¡y mi nuevo sitio Astro!</p>
+<BaseLayout pageTitle={pageTitle}>
+	<style define:vars={{skillcolor, fontWeight, textCase}}>
+		h1 {
+			color: purple;
+			font-size: 4rem;
+		}
+		.skill{
+			color: var(--skillcolor);
+			font-weight: var(--fontWeight);
+			text-transform: var(--textCase);
+		}
+	</style>
+	
+	<p>... ¡y mi nuevo sitio Astro!</p>
 
 		<p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
 		<p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
@@ -69,11 +59,8 @@ const textCase = "uppercase";
 		{happy && <p>¡Estoy feliz de aprender Astro!</p>}
 		{finished && <p>¡He terminado este tutorial!</p>}
 		{goal==3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
-	
-	<Footer />
 
 	<script>
 		import "../scripts/menu.js";
 	</script>
-	</body>
-</html>
+</BaseLayout>
